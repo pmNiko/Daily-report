@@ -1,0 +1,24 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+
+development:
+  <<: *default
+  database: dreport_development
+  username: Niko
+  password: nikolas89
+
+test:
+  <<: *default
+  database: dreport_test
+  username: Niko
+  password: nikolas89
+
+production:
+  <<: *default
+  database: dreport_production
+  username: Niko
+  password: <%= ENV['SIFAHO_DATABASE_PASSWORD'] %>
