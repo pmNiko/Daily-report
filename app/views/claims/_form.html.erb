@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <%= form.select :user,
+    User.all.map { |u| [u.email, u.id] },
+                 { include_blank: true },
+                 { class: 'chosen-select' }
+  %>
+
   <div class="field">
     <%= form.label :ticket %>
     <%= form.number_field :ticket, id: :claim_ticket %>
