@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%h1 Claims
+
+%table
+  %thead
+    %tr
+      %th Ticket
+      %th Client
+
+  %tbody
+    - @claims.each do |claim|
+      %tr
+        %td= claim.ticket
+        %td= claim.client
+        %td= link_to 'Show', claim
+        %td= link_to 'Edit', edit_claim_path(claim)
+        %td= link_to 'Destroy', claim, method: :delete, data: { confirm: 'Are you sure?' }
+
+= link_to 'New Claim', new_claim_path

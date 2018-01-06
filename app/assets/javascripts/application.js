@@ -14,7 +14,6 @@
 //= require jquery.turbolinks
 //= require rails-ujs
 //= require chosen-jquery
-//= require scaffold
 //= require bootstrap-sprockets
 //= require_tree .
 //= require turbolinks
