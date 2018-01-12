@@ -10,8 +10,11 @@ gem 'simple_form'
 gem 'haml'
 gem 'jquery-turbolinks'
 gem 'chosen-rails'
-#gem 'bootstrap', '= 4.0.0.alpha6'
-gem 'bootstrap', '= 4.0.0.alpha6'
+gem 'bootstrap-sass'
+#gem 'bootstrap', '= 4.0.0.beta3'
+#gem 'bootstrap', '~> 4.0.0.beta3'
+#gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 #gem 'jquery-rails'
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -48,6 +51,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
