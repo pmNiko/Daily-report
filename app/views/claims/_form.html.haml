@@ -1,5 +1,5 @@
 = simple_form_for @claim do |f|
-  = f.association :responsables, as: :select,
+  = f.association :users, as: :select,
                   value_method: :id, label_method: :email,
                   multiple: true, input_html: { class: 'chosen-select' }
   = f.input :ticket
