@@ -1,0 +1,13 @@
+
+%td{:class => ("glyphicon glyphicon-paperclip")} Ticket
+%td{:class => ("glyphicon glyphicon-phone")} Client
+%td{:class => ("glyphicon glyphicon-user")} Responsable
+%td{:class => ("glyphicon glyphicon-user")} Responsable
+%td{:class => ("glyphicon glyphicon-eye-open")} Ver
+%td{:class => ("glyphicon glyphicon-pencil")} Modificar
+%td{:class => ("glyphicon glyphicon-trash")} Eliminar
+
+%td.col-sm-12{:class => ("glyphicon glyphicon-eye-open")}= link_to 'Show', claim
+
+
+%td.col-sm-12{:class => ("glyphicon glyphicon-pencil")}= link_to 'Edit', edit_claim_path(claim)

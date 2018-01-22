@@ -1,5 +1,7 @@
-%h1 New Claim
+%div.col-sm-3
+%div.col-sm-5
+  %h1 New Claim
 
-= render 'form', claim: @claim
+  =render 'form', claim: @claim
 
-= link_to 'Back', claims_path 
+  =link_to 'Back', claims_path

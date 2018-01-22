@@ -1,13 +1,14 @@
 %p#notice
   = notice
+%div.col-sm-3
+%div.col-sm-5
+  %p
+    %strong Ticket:
+    = @claim.ticket
 
-%p
-  %strong Ticket:
-  = @claim.ticket
+  %p
+    %strong Client:
+    = @claim.client
 
-%p
-  %strong Client:
-  = @claim.client
-
-= link_to 'Edit', edit_claim_path(@claim)
-= link_to 'Back', claims_path
+  = link_to 'Edit', edit_claim_path(@claim)
+  = link_to 'Back', claims_path
