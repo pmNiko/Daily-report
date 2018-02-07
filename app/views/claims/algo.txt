@@ -1,0 +1,15 @@
+%tbody.text-center
+  - @claims.each do |claim|
+    %tr
+      %td.col-sm-12= claim.ticket
+      %td.col-sm-12= claim.client
+      - if claim.only_one_responsible?
+        %td.col-sm-12= claim.responsible_first.email
+        %td.col-sm-12= " - "
+      - else
+        %td.col-sm-12= claim.responsible_first.email
+        %td.col-sm-12= claim.responsible_second.email
+
+      %td.col-sm-12{:class => ("glyphicon glyphicon-eye-open")}= link_to 'Show', claim
+      %td.col-sm-12{:class => ("glyphicon glyphicon-pencil")}= link_to 'Edit', edit_claim_path(claim)
+      %td.col-sm-12{:class => ("glyphicon glyphicon-trash")}= link_to 'Destroy', claim, method: :delete, data: { confirm: 'Are you sure?' }
