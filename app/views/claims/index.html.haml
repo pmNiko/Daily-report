@@ -18,9 +18,3 @@
           %tr
             %td.col-sm-12= claim.ticket
             %td.col-sm-12= claim.client
-            - if claim.only_one_responsible?
-              %td.col-sm-12= claim.responsible_first.email
-              %td.col-sm-12= " - "
-            - else
-              %td.col-sm-12= claim.responsible_first.email
-              %td.col-sm-12= claim.responsible_second.email
