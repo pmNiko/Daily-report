@@ -21,4 +21,4 @@ production:
   <<: *default
   database: dreport_production
   username: Niko
-  password: <%= ENV['SIFAHO_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DREPOT_DATABASE_PASSWORD'] %>
