@@ -214,7 +214,7 @@ DEPENDENCIES
   chosen-rails
   coffee-rails (~> 4.2)
   devise
-  haml
+  haml (>= 2.2.0)
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

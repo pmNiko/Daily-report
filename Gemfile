@@ -7,7 +7,7 @@ end
 
 #gem 'simple_form'
 gem 'simple_form'
-gem 'haml'
+gem 'haml', '>= 2.2.0'
 gem 'jquery-turbolinks'
 gem 'chosen-rails'
 gem 'bootstrap-sass'
