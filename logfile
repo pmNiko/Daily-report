@@ -1,0 +1,12 @@
+2018-03-05 11:34:42.683 -03 [1053] LOG:  listening on IPv6 address "::1", port 5432
+2018-03-05 11:34:42.683 -03 [1053] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-03-05 11:34:42.691 -03 [1053] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-03-05 11:34:42.733 -03 [1055] LOG:  database system was shut down at 2017-11-29 00:57:32 -03
+2018-03-05 11:34:42.749 -03 [1053] LOG:  database system is ready to accept connections
+2018-03-05 11:35:11.722 -03 [1075] FATAL:  database "dreport_development" does not exist
+2018-03-05 11:38:02.604 -03 [1506] FATAL:  database "dreport_development" does not exist
+2018-03-05 11:39:07.158 -03 [1053] LOG:  received fast shutdown request
+2018-03-05 11:39:07.164 -03 [1053] LOG:  aborting any active transactions
+2018-03-05 11:39:07.169 -03 [1053] LOG:  worker process: logical replication launcher (PID 1061) exited with exit code 1
+2018-03-05 11:39:07.169 -03 [1056] LOG:  shutting down
+2018-03-05 11:39:07.188 -03 [1053] LOG:  database system is shut down
