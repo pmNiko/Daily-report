@@ -4,6 +4,7 @@
     %h2.text-center CLAIMS
     %table.table.table-striped
       %tbody.text-center
+        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-road")} Truck
         %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-paperclip")} Ticket
         %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-phone")} Client
         %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-user")} Responsible
@@ -14,6 +15,7 @@
       %tbody.text-center
         - @claims.each do |claim|
           %tr
+            %td= claim.truck
             %td= claim.ticket
             %td= claim.client
             - if claim.only_one_responsible?
