@@ -9,6 +9,14 @@
   %p
     %strong Client:
     = @claim.client
+  - if @claim.only_one_responsible?
+    %td= @claim.responsible_first.email
+    %td 
+  - else
+    %td
+      = @claim.responsible_first.email
+    %td
+      = @claim.responsible_second.email
 
   = link_to 'Edit', edit_claim_path(@claim)
   = link_to 'Back', claims_path

@@ -6,91 +6,91 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 martinUser = User.new(
-  :email                 => "martin.p@cotesma.com",
+  :email                 => "martin.paneblanco@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 martinUser.save!
 
 damiUser = User.new(
-  :email                 => "dami.d@cotesma.com",
+  :email                 => "damian.desimini@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 damiUser.save!
 
 maxiUser = User.new(
-  :email                 => "maxi.a@cotesma.com",
+  :email                 => "maximiliano.avila@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 maxiUser.save!
 
 darioUser = User.new(
-  :email                 => "dario.d@cotesma.com",
+  :email                 => "dario.dinapoli@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 darioUser.save!
 
 marcosUser = User.new(
-  :email                 => "marcos.o@cotesma.com",
+  :email                 => "marcos.olate@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 marcosUser.save!
 
 guilleUser = User.new(
-  :email                 => "guille.c@cotesma.com",
+  :email                 => "guille.cabrera@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 guilleUser.save!
 
 santiUser = User.new(
-  :email                 => "santi.c@cotesma.com",
+  :email                 => "santiago.thomas@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 santiUser.save!
 
 juabaUser = User.new(
-  :email                 => "juaba.c@cotesma.com",
+  :email                 => "juan.cardenas@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 juabaUser.save!
 
 luisUser = User.new(
-  :email                 => "luis.s@cotesma.com",
+  :email                 => "luis.savedra@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 luisUser.save!
 
 gasparUser = User.new(
-  :email                 => "gaspar.s@cotesma.com",
+  :email                 => "gaspar.sierra@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 gasparUser.save!
 
 hugoUser = User.new(
-  :email                 => "hugo.h@cotesma.com",
+  :email                 => "hugo.perez@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 hugoUser.save!
 
 leoUser = User.new(
-  :email                 => "leo.g@cotesma.com",
+  :email                 => "leonardo.gaias@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
 leoUser.save!
 
 pabloUser = User.new(
-  :email                 => "pablo.f@cotesma.com",
+  :email                 => "pablo.ferreri@cotesma.com",
   :password              => "123456",
   :password_confirmation => "123456"
 )
