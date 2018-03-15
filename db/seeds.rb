@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 martinUser = User.new(
   :email                 => "martin.paneblanco@cotesma.com",
   :password              => "123456",
@@ -95,3 +88,57 @@ pabloUser = User.new(
   :password_confirmation => "123456"
 )
 pabloUser.save!
+
+
+claim_1 = Claim.new({
+  ticket: 204666,
+  client: "sma_9087",
+  truck: 22,
+  :users => [marcosUser]
+  })
+claim_1.save!
+
+claim_2 = Claim.new({
+  ticket: 205666,
+  client: "sma_1111",
+  truck: 26,
+  :users => [guilleUser]
+  })
+claim_2.save!
+
+
+4.times do |n|
+  Claim.create!({
+    :users => [martinUser, damiUser],
+    ticket: "#{n}#{n+1}#{n+2}#{n+3}#{n+4}#{n+5}",
+    client: "sma_#{n}#{n+2}#{n+3}#{n+4}",
+    truck: 21
+  });
+end
+
+4.times do |n|
+  Claim.create!({
+    :users => [maxiUser, darioUser],
+    ticket: "#{n+4}#{n+3}#{n+2}#{n+1}#{n}#{n+1}",
+    client: "sma_#{n}#{n+2}#{n+3}#{n+4}",
+    truck: 23
+  });
+end
+
+3.times do |n|
+  Claim.create!({
+    :users => [martinUser, damiUser],
+    ticket: "#{n+5}#{n+6}#{n+7}#{n+8}#{n+9}#{n}",
+    client: "sma_#{n}#{n+2}#{n+3}#{n+4}",
+    truck: 21
+  });
+end
+
+3.times do |n|
+  Claim.create!({
+    :users => [maxiUser, darioUser],
+    ticket: "#{n+7}#{n+6}#{n+7}#{n+8}#{n+9}#{n}",
+    client: "sma_#{n+7}#{n+8}#{n+9}#{n+2}",
+    truck: 23
+  });
+end
