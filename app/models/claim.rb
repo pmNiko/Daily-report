@@ -1,6 +1,7 @@
 class Claim < ApplicationRecord
   #The class Claim has many responsables
   has_and_belongs_to_many :users
+  has_and_belongs_to_many :crews
   #Return the responsables
   def responsibles
     @users = self.users
