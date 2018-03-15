@@ -8,6 +8,6 @@ class MoveTruckAndResponsablesToClaimsTable < ActiveRecord::Migration[5.1]
           crew.create_and_add(claim)
         end
       end
-    end
+    end    
   end
 end
