@@ -93,31 +93,18 @@ pabloUser.save!
 claim_1 = Claim.new({
   ticket: 204666,
   client: "sma_9087",
-  truck: 21,
-  :users => [martinUser, damiUser]
+  truck: 22,
+  :users => [marcosUser]
   })
 claim_1.save!
 
 claim_2 = Claim.new({
   ticket: 205666,
   client: "sma_1111",
-  truck: 21,
-  :users => [martinUser]
+  truck: 26,
+  :users => [guilleUser]
   })
 claim_2.save!
-
-Crew.create!({
-  date: Time.now.strftime("%d-%m-%Y"),
-  truck: 21,
-  :claims => [claim_1],
-  :users => [martinUser, damiUser]
-  })
-Crew.create!({
-  date: Time.now.strftime("%d-%m-%Y"),
-  truck: 21,
-  :claims => [claim_2],
-  :users => [martinUser]
-  })
 
 
 4.times do |n|
