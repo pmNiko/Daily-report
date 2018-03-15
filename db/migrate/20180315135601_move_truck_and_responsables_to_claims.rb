@@ -1,4 +1,4 @@
-class MoveTruckAndResponsablesToClaimsTable < ActiveRecord::Migration[5.1]
+class MoveTruckAndResponsablesToClaims < ActiveRecord::Migration[5.1]
   def change
     Claim.find_each do |claim|
       Crew.find_each do |crew|
@@ -8,6 +8,6 @@ class MoveTruckAndResponsablesToClaimsTable < ActiveRecord::Migration[5.1]
           crew.create_and_add(claim)
         end
       end
-    end    
+    end
   end
 end
