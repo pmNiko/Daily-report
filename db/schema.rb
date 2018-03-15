@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315133136) do
+ActiveRecord::Schema.define(version: 20180315194446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20180315133136) do
     t.integer "truck"
   end
 
-  create_table "claims_crews", force: :cascade do |t|
+  create_table "claims_teams", id: false, force: :cascade do |t|
     t.integer "claim_id"
-    t.integer "crew_id"
+    t.integer "team_id"
   end
 
   create_table "claims_users", id: false, force: :cascade do |t|
@@ -33,15 +33,15 @@ ActiveRecord::Schema.define(version: 20180315133136) do
     t.integer "user_id"
   end
 
-  create_table "crews", force: :cascade do |t|
+  create_table "teams", force: :cascade do |t|
     t.date "date"
     t.integer "truck"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "crews_users", id: false, force: :cascade do |t|
-    t.integer "crew_id"
+  create_table "teams_users", id: false, force: :cascade do |t|
+    t.integer "team_id"
     t.integer "user_id"
   end
 

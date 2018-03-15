@@ -1,13 +1,64 @@
-class MoveTruckAndResponsablesToClaimsTable < ActiveRecord::Migration[5.1]
-  def change
-    Claim.find_each do |claim|
-      Crew.find_each do |crew|
-        if crew.contain?(claim)
-          crew.add(claim)
-        else
-          crew.create_and_add(claim)
-        end
-      end
+Claim.find_each do |claim|
+  Crew.find_each do |crew|
+    if crew.corresponds_this?(claim)
+      crew.claims << claim
+    else
+      crew = Crew.new(
+        date: Time.now,
+        truck: claim.truck,
+        :claims => [claim]
+      )
+      crew.save!
+      crew.add_user_of(claim)
     end
+  end
+end
+
+
+
+has_and_belongs_to_many :claims
+has_and_belongs_to_many :users
+
+def include_user?(user)
+  self.users.includes?(user)
+end
+
+def corresponds_this?(claim)
+  user_1 = claim.responsible_first
+
+  if claim.only_one_responsible?
+    include_user?(user_1) && truck.eql?(claim.truck)
+  else
+    user_2 = claim.responsible_second
+    include_user?(user_1) && include_user?(user_2) && truck.eql?(claim.truck)
+  end
+end
+
+def add_user_of(claim)
+  if claim.only_one_responsible?
+    users << claim.responsible_first
+  else
+    users << [claim.responsible_first, claim.responsible_second]
+  end
+end
+
+def change
+  create_table :teams do |t|
+    t.date :date
+    t.integer :truck
+
+    t.timestamps
+  end
+end
+
+def change
+  create_table :claims_teams, :id => false do |t|
+    t.integer :claim_id
+    t.integer :team_id
+  end
+
+  create_table :teams_users, :id => false do |t|
+    t.integer :team_id
+    t.integer :user_id
   end
 end
