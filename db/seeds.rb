@@ -106,7 +106,6 @@ claim_2 = Claim.new({
   })
 claim_2.save!
 
-
 4.times do |n|
   Claim.create!({
     :users => [martinUser, damiUser],

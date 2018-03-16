@@ -1,15 +1,24 @@
-Claim.find_each do |claim|
-  Crew.find_each do |crew|
-    if crew.corresponds_this?(claim)
-      crew.claims << claim
-    else
-      crew = Crew.new(
+teamP = Team.new(
+  date: Time.now,
+  truck: 22
+)
+teamP.save!
+
+Claim.all.each do |claim|
+  Team.all.each do |team|
+    if team.corresponds_this?(claim)
+      team.claims << claim
+      team.add_user_of(claim)
+    elsif !claim.to_a?(team)
+      team = Team.new(
         date: Time.now,
         truck: claim.truck,
         :claims => [claim]
       )
-      crew.save!
-      crew.add_user_of(claim)
+      team.save!
+      team.add_user_of(claim)
+    else
+      #nothing
     end
   end
 end

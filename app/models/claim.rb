@@ -19,4 +19,8 @@ class Claim < ApplicationRecord
     return self.responsibles.second
   end
 
+  def to_a?(team)
+    team.there_any?(self)
+  end
+
 end

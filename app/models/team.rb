@@ -3,7 +3,7 @@ class Team < ApplicationRecord
   has_and_belongs_to_many :users
 
   def include_user?(user)
-    self.users.includes?(user)
+    self.users.include?(user)
   end
 
   def corresponds_this?(claim)
@@ -15,6 +15,16 @@ class Team < ApplicationRecord
       user_2 = claim.responsible_second
       include_user?(user_1) && include_user?(user_2) && truck.eql?(claim.truck)
     end
+  end
+
+  def there_any?(claim)
+    Team.all.each do |team|
+      if team.corresponds_this?(claim)
+        return true
+        break
+      end
+    end
+    return false
   end
 
   def add_user_of(claim)
