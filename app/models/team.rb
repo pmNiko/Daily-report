@@ -1,11 +1,14 @@
 class Team < ApplicationRecord
+
   has_and_belongs_to_many :claims
   has_and_belongs_to_many :users
 
+  #incluye este usuario en su coleccion de usuarios
   def include_user?(user)
     self.users.include?(user)
   end
 
+  #Te corresponde este reclamo
   def corresponds_this?(claim)
     user_1 = claim.responsible_first
 
@@ -17,6 +20,7 @@ class Team < ApplicationRecord
     end
   end
 
+  #Equipo hay alguno que contenga este reclamo
   def there_any?(claim)
     Team.all.each do |team|
       if team.corresponds_this?(claim)
@@ -27,6 +31,7 @@ class Team < ApplicationRecord
     return false
   end
 
+  #Agrega el usuario a su colleccion
   def add_user_of(claim)
     if claim.only_one_responsible?
       users << claim.responsible_first

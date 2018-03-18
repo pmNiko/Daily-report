@@ -4,21 +4,21 @@ class Claim < ApplicationRecord
   has_and_belongs_to_many :teams
   #Return the responsables
   def responsibles
-    @users = self.users
+    @users = users
   end
   #Return true or false if contain only one responsable
   def only_one_responsible?
-    self.responsibles.count == 1
+    responsibles.count == 1
   end
-
+  #responsable number first
   def responsible_first
-    return self.responsibles.first
+    responsibles.first
   end
-
+  #responsible number two
   def responsible_second
-    return self.responsibles.second
+    responsibles.second
   end
-
+  #Reclamo pertenece a algun equipo
   def to_a?(team)
     team.there_any?(self)
   end

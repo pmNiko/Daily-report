@@ -1,10 +1,9 @@
 class MoveTruckAndResponsablesToClaims < ActiveRecord::Migration[5.1]
   def change
-    teamP = Team.new(
+    teamP = Team.create!(
       date: Time.now,
       truck: 22
     )
-    teamP.save!
 
     Claim.all.each do |claim|
       Team.all.each do |team|
