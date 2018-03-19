@@ -1,0 +1,21 @@
+:javascript
+  $('#datepicker').datepicker({format: 'dd/mm/yyyy'});
+%div.row
+= simple_form_for @team do |f|
+  = f.label :date
+  = f.date_field :date, :id => "datepicker", class: 'form-control'
+  = f.association :users, as: :select,
+                  value_method: :id, label_method: :email,
+                  multiple: true, input_html: { class: 'chosen-select',
+                  max_selected_options: 2 }
+
+  = f.input :truck
+
+  .paneldefault
+    .panelheading
+    %h3.paneltitle Claims
+    .panelbody
+      = f.fields_for :claims, Claim.new do | form_builder |
+        = render 'claim_fields', :f => form_builder
+
+  = f.button :submit

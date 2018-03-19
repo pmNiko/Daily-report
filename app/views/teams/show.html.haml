@@ -1,0 +1,26 @@
+%p#notice
+  = notice
+%div.col-sm-3
+%div.col-sm-5
+
+  %p
+    %strong Date:
+    = @team.date.strftime("%d/%m/%Y")
+  %p
+    %strong Truck:
+    = @team.truck
+  %p
+    %strong Client:
+    = @claim.client
+  - if @claim.only_one_responsible?
+    %td= @claim.responsible_first.email
+    %td
+  - else
+    %td
+      = @claim.responsible_first.email
+    %td
+      = @claim.responsible_second.email
+
+
+  = link_to 'Edit', edit_team_path(@team)
+  = link_to 'Back', teams_path

@@ -1,0 +1,21 @@
+.row
+= simple_form_for @teams do |f|
+  = f.association :users, as: :select,
+                  value_method: :id, label_method: :email,
+                  multiple: true, input_html: { class: 'chosen-select',
+                  max_selected_options: 2 }
+
+  = f.date_select :date, :order => [:day, :month, :year]
+
+  = f.input :truck
+
+  .panel.paneldefault
+    .paneltitle
+      %h3.paneltitle Claims
+
+  %div
+    .panebody
+      = f.fields_for :claims do | form_builder |
+      = render "claim_fields", :f => form_builder
+
+  = f.button :submit
