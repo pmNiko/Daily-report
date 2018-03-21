@@ -9,13 +9,38 @@
 
   = f.input :truck
 
-  .panel.paneldefault
-    .paneltitle
+  .paneldefault
+    .panelheading
       %h3.paneltitle Claims
+    .panelbody
+      #claims
+        = f.fields_for :claims, Claim.new do | form_builder |
+          = render 'claim_fields', :f => form_builder
 
-  %div
-    .panebody
-      = f.fields_for :claims do | form_builder |
-      = render "claim_fields", :f => form_builder
+      %a{:href => '#', :onclick => "addClaim($('#claims')); return false;"} Add
+    - new_claim = Claim.new
+    - fields = f.fields_for(:claims, new_claim) do |fb|
+      = render 'claim_fields', :f => fb
 
   = f.button :submit
+
+%a{:href => "#", :class => "btn btn-warning", :onclick => "removePhone(this)"} Remove
+
+_________
+_____________________________________
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Phones
+  .panel-body
+    #phones
+      = f.fields_for :phones do | form_builder |
+        = render "phone_fields", :f => form_builder
+    - new_phone = Phone.new
+    - fields = f.fields_for(:phones,
+    - new_phone,
+    - :child_index => "id_placeholder") do |fb|
+    - render("phone_fields", :f => fb)
+    - end
+    - js = escape_javascript(fields)
+    - fn = html_escape("addPhone($('#phones'), \"#{js}\")")
+    - concat(raw("<a href=\"#\" class=\"btn btn-primary\" onclick=\"#{fn}\"><span class=\"glyphicon glyphicon-plus\"></span></a>"))

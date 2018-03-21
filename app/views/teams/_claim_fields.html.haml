@@ -1,7 +1,8 @@
 .form-inline
   .form-group
-    = f.input :ticket
-    = f.input :client
+    = f.input :ticket, class: 'form-control'
+    = f.input :client, class: 'form-control'
   .form-group
-    = f.label :_destroy, "Remove"
-    = f.check_box :_destroy
+    = f.hidden_field :_destroy
+    %a.btn.btn-warning{:href => "#", :onclick => "removeClaim(this)"}
+      %span.glyphicon.glyphicon-minus
