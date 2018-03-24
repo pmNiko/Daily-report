@@ -1,7 +1,7 @@
 %p#notice
   = notice
-%div.col-sm-3
-%div.col-sm-5
+.col-sm-3
+.col-sm-5
 
   %p
     %strong Date:
@@ -11,15 +11,15 @@
     = @team.truck
   %p
     %strong Client:
-    = @claim.client
-  - if @claim.only_one_responsible?
-    %td= @claim.responsible_first.email
+    = @team.claims.last.client
+  - if @team.only_responsible?
+    %td= @team.first_responsible
     %td
   - else
     %td
-      = @claim.responsible_first.email
+      = @team.first_responsible
     %td
-      = @claim.responsible_second.email
+      = @team.second_responsible
 
 
   = link_to 'Edit', edit_team_path(@team)

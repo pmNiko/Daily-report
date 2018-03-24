@@ -7,4 +7,4 @@ $(document).on "turbolinks:load", ->
     allow_single_deselect: true
     no_results_text: 'No results matched'
     width: '200px'
-    max_selected_options: 1
+    max_selected_options: 2

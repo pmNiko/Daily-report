@@ -10,26 +10,24 @@
     .panel-body.text-center
       .form-inline
         .form-group
-          = f.association :users, as: :select,
-                            value_method: :id, label_method: :email,
-                            multiple: true, input_html: { class: 'chosen-select',
-                            max_selected_options: 1 }
-          = f.association :users, as: :select,
-                            value_method: :id, label_method: :email,
-                            multiple: true, input_html: { class: 'chosen-select',
-                            max_selected_options: 1 }
-      .form-inline
-        .form-group
           = f.label :date
-          = f.date_field :date, :title => "date", :id => "datepicker", :placeholder => 'dd/mm/yyyy', :class => "form-control-datepicker"
+          = f.date_field :date, :title => "date", :id => "datepicker", :value => Date.today,
+          :placeholder => 'dd/mm/yyyy',
+          :class => "form-control-datepicker"
         .form-group
-          = f.input :truck, class: 'form-control-datepicker'
+          = f.association :users, as: :select,
+                            value_method: :id, label_method: :email,
+                            multiple: true, input_html: { class: 'chosen-select',
+                            max_selected_options: 2 }
+
+        .form-group
+          = f.input :truck, class: 'form-control currency'
 
   .panel.panel-default
     .panel-heading
       %h3.panel-title.text-center Claims
     .panel-body
-      #claims
+      .col-sm-12.text-center#claims
         = f.fields_for :claims, Claim.new do | form_builder |
           = render 'claim_fields', :f => form_builder
       - new_claim = Claim.new
@@ -41,4 +39,4 @@
       - concat(raw("<a href=\"#\" class=\"btn btn-primary\" onclick=\"#{fn}\"><span class=\"glyphicon glyphicon-plus\"></span></a>"))
   %br
   %p.text-center
-    = f.button :submit
+    = f.button :submit, :class => 'btn btn-primary'

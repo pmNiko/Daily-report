@@ -1,6 +1,8 @@
-%h1 Editing Team
+%div.col-sm-3
+%div.col-sm-5
+  %h6.text-center
 
-= render 'form', team: @team
+    = render 'form', team: @team
 
-= link_to 'Show', @team
-= link_to 'Back', teams_path
+    = link_to 'Show', @team
+    = link_to 'Back', teams_path

@@ -5,6 +5,20 @@ class Team < ApplicationRecord
   accepts_nested_attributes_for :claims, :allow_destroy => true
 
   #incluye este usuario en su coleccion de usuarios
+  def responsibles
+    users
+  end
+
+  def only_responsible?
+    responsibles.count.eql?(1)
+  end
+  def first_responsible
+    responsibles.first.email
+  end
+  def second_responsible
+    responsibles.second.email
+  end
+
   def include_user?(user)
     self.users.include?(user)
   end
