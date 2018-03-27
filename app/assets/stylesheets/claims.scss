@@ -1,3 +1,46 @@
 // Place all the styles related to the Claims controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#table-team{
+  background: 	#F0F8FF !important;
+  border-radius: 35px;
+  border: 1px solid;
+  margin-bottom: 45px;
+
+}
+#panel-heading{
+  padding: 5px;
+}
+
+#but {
+  display: block;
+  width: 98%;
+  height: 80px;
+  background-color: #F0F8FF ;
+  padding: 5px;
+  text-align: center;
+  border-radius: 40px;
+  color: none;
+  font-weight: bold;
+}
+.button:hover {
+    background: #F5DEB3 !important;
+}
+
+a:link{
+  text-decoration:none;
+  margin: auto;
+}
+
+#tbody{
+  text-align: center;
+}
+#tbody th{
+  text-align: center;
+  background: #4682B4!important;
+  border-radius: 20px;
+}
+#tbody td{
+  text-align: center;
+  border-radius: 12px;
+}

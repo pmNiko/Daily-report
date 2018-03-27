@@ -48,10 +48,18 @@ class Team < ApplicationRecord
 
   #Agrega el usuario a su colleccion
   def add_user_of(claim)
+    user_1 = claim.responsible_first
+
     if claim.only_one_responsible?
-      users << claim.responsible_first
+      unless include_user?(user_1)
+        users << claim.responsible_first
+      end
     else
-      users << [claim.responsible_first, claim.responsible_second]
+      user_2 = claim.responsible_second
+
+      unless include_user?(user_1) || include_user?(user_2)
+        users << [claim.responsible_first, claim.responsible_second]
+      end
     end
   end
 

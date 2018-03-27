@@ -1,48 +1,96 @@
-%div.col-sm-3
-%div.col-sm-7.control-group
-  %div.container.col-sm-12
-    %h2.text-center CLAIMS
-    %table.table.table-striped
-      %tbody.text-center
-        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-road")} Truck
-        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-paperclip")} Ticket
-        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-phone")} Client
-        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-user")} Responsible
-        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-user")} Responsible
-        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-eye-open")} Show
-        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-pencil")} Modify
-        %th.text-center.col-sm-12{:class => ("glyphicon glyphicon-trash")} Destroy
-      %tbody.text-center
-        - @claims.each do |claim|
-          %tr
-            %td= claim.truck
-            %td= claim.ticket
-            %td= claim.client
-            - if claim.only_one_responsible?
-              %td= claim.responsible_first.email
-              %td 
-              %td
-                = link_to claim_path(claim), class: 'btn btn-info btn-xs' do
-                  = content_tag(:span, '', class: 'glyphicon glyphicon-eye-open')
-              %td
-                = link_to edit_claim_path(claim), class: 'btn btn-warning btn-xs' do
-                  = content_tag(:span, '', class: 'glyphicon glyphicon-edit')
-              %td
-                = link_to claim_path(claim), class: 'btn btn-danger btn-xs', |
-                  method: :delete, data: {confirm: 'Estas segur@?'} do       |
-                  = content_tag(:span, '', class: 'glyphicon glyphicon-trash')
-            - else
-              %td
-                = claim.responsible_first.email
-              %td
-                = claim.responsible_second.email
-              %td
-                = link_to claim_path(claim), class: 'btn btn-info btn-xs' do
-                  = content_tag(:span, '', class: 'glyphicon glyphicon-eye-open')
-              %td
-                = link_to edit_claim_path(claim), class: 'btn btn-warning btn-xs' do
-                  = content_tag(:span, '', class: 'glyphicon glyphicon-edit')
-              %td
-                = link_to claim_path(claim), class: 'btn btn-danger btn-xs', |
-                  method: :delete, data: {confirm: 'Estas segur@?'} do       |
-                  = content_tag(:span, '', class: 'glyphicon glyphicon-trash')
+.container-fluid
+  .row
+    .col-sm-1
+    .col-sm-9
+      .container
+      %h2.text-center Accordion Example
+      %p
+        %strong Note:
+        The
+        %strong data-parent
+        attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.
+      #accordion.panel-group
+        .panel.panel-defauls#table-team
+          .panel-heading#panel-heading
+            %h4.panel-title
+              %a{"data-parent" => "#accordion", "data-toggle" => "collapse",
+               :href => "#collapse5", :class => "button"}
+                .panel-body
+                  %table.table.table-striped
+                    %tbody.tbody
+                      %th.col-sm-1{:class => ("glyphicon glyphicon-user")} Responsible
+                      %th.col-sm-1{:class => ("glyphicon glyphicon-user")} Responsible
+                      %th.col-sm-1{:class => ("glyphicon glyphicon-road")} Truck
+          #collapse5.panel-collapse.collapse.border-collapse
+            .panel-body
+              %table.table.table-striped
+                %tbody.tbody
+                  %th.col-sm-1{:class => ("glyphicon glyphicon-road")} Truck
+                  %th.col-sm-1{:class => ("glyphicon glyphicon-paperclip")} Ticket
+                  %th.col-sm-1{:class => ("glyphicon glyphicon-phone")} Client
+                  %th.col-sm-1{:class => ("glyphicon glyphicon-user")} Responsible
+                  %th.col-sm-1{:class => ("glyphicon glyphicon-user")} Responsible
+                  %th.col-sm-1{:class => ("glyphicon glyphicon-eye-open")} Show
+                  %th.col-sm-1{:class => ("glyphicon glyphicon-pencil")} Modify
+                  %th.col-sm-1{:class => ("glyphicon glyphicon-trash")} Destroy
+                %tbody.tbody
+                  - @claims.each do |claim|
+                    %tr
+                      %td= claim.truck
+                      %td= claim.ticket
+                      %td= claim.client
+                      - if claim.only_one_responsible?
+                        %td= claim.responsible_first.email
+                        %td
+                        %td
+                          = link_to claim_path(claim), class: 'btn btn-info btn-xs' do
+                            = content_tag(:span, '', class: 'glyphicon glyphicon-eye-open')
+                        %td
+                          = link_to edit_claim_path(claim), class: 'btn btn-warning btn-xs' do
+                            = content_tag(:span, '', class: 'glyphicon glyphicon-edit')
+                        %td
+                          = link_to claim_path(claim), class: 'btn btn-danger btn-xs', |
+                            method: :delete, data: {confirm: 'Estas segur@?'} do       |
+                            = content_tag(:span, '', class: 'glyphicon glyphicon-trash')
+                      - else
+                        %td
+                          = claim.responsible_first.email
+                        %td
+                          = claim.responsible_second.email
+                        %td
+                          = link_to claim_path(claim), class: 'btn btn-info btn-xs' do
+                            = content_tag(:span, '', class: 'glyphicon glyphicon-eye-open')
+                        %td
+                          = link_to edit_claim_path(claim), class: 'btn btn-warning btn-xs' do
+                            = content_tag(:span, '', class: 'glyphicon glyphicon-edit')
+                        %td
+                          = link_to claim_path(claim), class: 'btn btn-danger btn-xs', |
+                            method: :delete, data: {confirm: 'Estas segur@?'} do       |
+                            = content_tag(:span, '', class: 'glyphicon glyphicon-trash')
+        .panel.panel-info
+          .panel-heading
+            %h4.panel-title
+              %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse2"} Collapsible Group 2
+          #collapse2.panel-collapse.collapse
+            .panel-body
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        .panel.panel-info
+          .panel-heading
+            %h4.panel-title
+              %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse3"} Collapsible Group 3
+          #collapse3.panel-collapse.collapse
+            .panel-body
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        .panel.panel-info
+          .panel-heading
+            %h4.panel-title
+              %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse4"} Collapsible Group 3
+          #collapse4.panel-collapse.collapse
+            .panel-body
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

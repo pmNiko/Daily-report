@@ -1,46 +1,52 @@
-.row
-= simple_form_for @teams do |f|
-  = f.association :users, as: :select,
-                  value_method: :id, label_method: :email,
-                  multiple: true, input_html: { class: 'chosen-select',
-                  max_selected_options: 2 }
-
-  = f.date_select :date, :order => [:day, :month, :year]
-
-  = f.input :truck
-
-  .paneldefault
-    .panelheading
-      %h3.paneltitle Claims
-    .panelbody
-      #claims
-        = f.fields_for :claims, Claim.new do | form_builder |
-          = render 'claim_fields', :f => form_builder
-
-      %a{:href => '#', :onclick => "addClaim($('#claims')); return false;"} Add
-    - new_claim = Claim.new
-    - fields = f.fields_for(:claims, new_claim) do |fb|
-      = render 'claim_fields', :f => fb
-
-  = f.button :submit
-
-%a{:href => "#", :class => "btn btn-warning", :onclick => "removePhone(this)"} Remove
-
-_________
-_____________________________________
-.panel.panel-default
-  .panel-heading
-    %h3.panel-title Phones
-  .panel-body
-    #phones
-      = f.fields_for :phones do | form_builder |
-        = render "phone_fields", :f => form_builder
-    - new_phone = Phone.new
-    - fields = f.fields_for(:phones,
-    - new_phone,
-    - :child_index => "id_placeholder") do |fb|
-    - render("phone_fields", :f => fb)
-    - end
-    - js = escape_javascript(fields)
-    - fn = html_escape("addPhone($('#phones'), \"#{js}\")")
-    - concat(raw("<a href=\"#\" class=\"btn btn-primary\" onclick=\"#{fn}\"><span class=\"glyphicon glyphicon-plus\"></span></a>"))
+#accordion.panel-group#table-team
+.panel.panel-info
+  .panel-heading#panel-heading
+    %h4.panel-title
+      %a{"data-parent" => "#accordion", "data-toggle" => "collapse",
+       :href => "#collapse2", :class => "button"} Group 2
+  #collapse2.panel-collapse.collapse.border-collapse
+    .panel-body
+      %table.table.table-striped
+        %tbody.tbody
+          %th.col-sm-1{:class => ("glyphicon glyphicon-road")} Truck
+          %th.col-sm-1{:class => ("glyphicon glyphicon-paperclip")} Ticket
+          %th.col-sm-1{:class => ("glyphicon glyphicon-phone")} Client
+          %th.col-sm-1{:class => ("glyphicon glyphicon-user")} Responsible
+          %th.col-sm-1{:class => ("glyphicon glyphicon-user")} Responsible
+          %th.col-sm-1{:class => ("glyphicon glyphicon-eye-open")} Show
+          %th.col-sm-1{:class => ("glyphicon glyphicon-pencil")} Modify
+          %th.col-sm-1{:class => ("glyphicon glyphicon-trash")} Destroy
+        %tbody.tbody
+          - @claims.each do |claim|
+            %tr
+              %td= claim.truck
+              %td= claim.ticket
+              %td= claim.client
+              - if claim.only_one_responsible?
+                %td= claim.responsible_first.email
+                %td
+                %td
+                  = link_to claim_path(claim), class: 'btn btn-info btn-xs' do
+                    = content_tag(:span, '', class: 'glyphicon glyphicon-eye-open')
+                %td
+                  = link_to edit_claim_path(claim), class: 'btn btn-warning btn-xs' do
+                    = content_tag(:span, '', class: 'glyphicon glyphicon-edit')
+                %td
+                  = link_to claim_path(claim), class: 'btn btn-danger btn-xs', |
+                    method: :delete, data: {confirm: 'Estas segur@?'} do       |
+                    = content_tag(:span, '', class: 'glyphicon glyphicon-trash')
+              - else
+                %td
+                  = claim.responsible_first.email
+                %td
+                  = claim.responsible_second.email
+                %td
+                  = link_to claim_path(claim), class: 'btn btn-info btn-xs' do
+                    = content_tag(:span, '', class: 'glyphicon glyphicon-eye-open')
+                %td
+                  = link_to edit_claim_path(claim), class: 'btn btn-warning btn-xs' do
+                    = content_tag(:span, '', class: 'glyphicon glyphicon-edit')
+                %td
+                  = link_to claim_path(claim), class: 'btn btn-danger btn-xs', |
+                    method: :delete, data: {confirm: 'Estas segur@?'} do       |
+                    = content_tag(:span, '', class: 'glyphicon glyphicon-trash')
