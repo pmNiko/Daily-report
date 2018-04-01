@@ -8,15 +8,17 @@ class Team < ApplicationRecord
   def responsibles
     users
   end
-
+  def date_format
+    date.strftime("%d/%m/%Y")
+  end
   def only_responsible?
     responsibles.count.eql?(1)
   end
   def first_responsible
-    responsibles.first.email
+    responsibles.first
   end
   def second_responsible
-    responsibles.second.email
+    responsibles.second
   end
 
   def include_user?(user)
@@ -62,5 +64,17 @@ class Team < ApplicationRecord
       end
     end
   end
-
+  #Associa los responsables de cada reclamo para hacer reportes de historial
+  #de cada reclamo en un futuro.
+  def associated(quantity_users)
+    #Por defecto trae en la colleccion un " " que agrega uno de mas. Al no estar
+    #inserto en la BD no cuenta los responsables y deja sin efecto el metodo ya existente -> only_responsible?.
+    quantity_users -=1
+    claims.each do |claim|
+      unless quantity_users.eql?(1)
+        claim.add_responsible(second_responsible)
+      end
+      claim.add_responsible(first_responsible)
+    end
+  end
 end

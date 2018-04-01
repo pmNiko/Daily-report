@@ -1,3 +1,4 @@
+  teams = Team.all
   i = 0
   teams.each do |team|
     i +=1

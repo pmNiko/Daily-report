@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require users
 //= require popper
-//= require bootstrap-datepicker
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require_tree .

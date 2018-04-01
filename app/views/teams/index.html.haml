@@ -21,10 +21,10 @@
                   .panel-body
                     %table.table.table-striped
                       %tbody#tbody
-                        %th.col-sm-1{:class => ("glyphicon glyphicon-dashboard")} &nbsp#{team.date}
+                        %th.col-sm-1{:class => ("glyphicon glyphicon-dashboard")} &nbsp#{team.date_format}
                         - unless team.only_responsible?
-                          %th.col-sm-1{:class => ("glyphicon glyphicon-user")} &nbsp#{team.second_responsible}
-                        %th.col-sm-1{:class => ("glyphicon glyphicon-user")} &nbsp#{team.first_responsible}
+                          %th.col-sm-1{:class => ("glyphicon glyphicon-user")} &nbsp#{team.second_responsible.email}
+                        %th.col-sm-1{:class => ("glyphicon glyphicon-user")} &nbsp#{team.first_responsible.email}
                         %th.col-sm-1{:class => ("glyphicon glyphicon-road")} &nbsp#{team.truck}
             .panel-collapse.collapse.border-collapse{:id => ("collapse#{id}")}
               .panel-body

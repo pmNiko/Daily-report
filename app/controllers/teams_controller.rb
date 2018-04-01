@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    #@claims = Team.find(params[:id])
     @claim = Team.last.claims.first
   end
 
@@ -26,6 +27,8 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    @quantity_users = params[:team][:user_ids]
+    @team.associated(@quantity_users.count)
 
     respond_to do |format|
       if @team.save
@@ -74,6 +77,7 @@ class TeamsController < ApplicationController
         .require(:team)
         .permit(
           {:user_ids =>[]},
+          :claims,
           :date,
           :truck,
           claims_attributes: [

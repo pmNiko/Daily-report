@@ -5,7 +5,7 @@
 
   %p
     %strong Date:
-    = @team.date.strftime("%d/%m/%Y")
+    = @team.date_format
   %p
     %strong Truck:
     = @team.truck
@@ -13,13 +13,13 @@
     %strong Client:
     = @team.claims.last.client
   - if @team.only_responsible?
-    %td= @team.first_responsible
+    %td= @team.first_responsible.email
     %td
   - else
     %td
-      = @team.first_responsible
+      = @team.first_responsible.email
     %td
-      = @team.second_responsible
+      = @team.second_responsible.email
 
 
   = link_to 'Edit', edit_team_path(@team)
