@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.min
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require bootstrap.min
 //= require users
 //= require popper
 //= require bootstrap
-//= require bootstrap-sprockets
 //= require_tree .
 //= require jquery.turbolinks
 //= require chosen-jquery
