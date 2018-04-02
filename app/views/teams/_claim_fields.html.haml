@@ -3,6 +3,6 @@
     = f.input :ticket, class: 'form-control'
     = f.input :client, class: 'form-control'
   .form-group.text-center
-    = f.hidden_field :_destroy
-    %a.btn.btn-warning{:href => "#", :onclick => "removeClaim(this)"}
-      %span.glyphicon.glyphicon-minus
+    .btn.btn-danger.btn-xs
+      = link_to_remove_association('', f,{ wrapper_class: 'form-inline',
+        class: 'glyphicon glyphicon-minus'  })

@@ -22,15 +22,10 @@
       %h3.panel-title.text-center Claims
     .panel-body
       .col-sm-12.text-center#claims
-        = f.fields_for :claims, Claim.new do | form_builder |
-          = render 'claim_fields', :f => form_builder
-      - new_claim = Claim.new
-      - fields = f.fields_for(:claims, new_claim,
-        :child_index => "id_placeholder") do |fb|
-        = render("claim_fields", :f => fb)
-      - js = escape_javascript(fields)
-      - fn = html_escape("addClaim($('#claims'), \"#{js}\")")
-      - concat(raw("<a href=\"#\" class=\"btn btn-primary\" onclick=\"#{fn}\"><span class=\"glyphicon glyphicon-plus\"></span></a>"))
+        = f.simple_fields_for :claims do | form_builder |
+          = render "claim_fields", :f => form_builder
+      .btn.btn-success.btn-sm
+        = link_to_add_association '', f, :claims, class: 'glyphicon glyphicon-plus'
   %br
-  %p.text-center
+  %button.text-center
     = f.button :submit, :class => 'btn btn-primary'

@@ -17,6 +17,8 @@ gem 'bootstrap-datepicker-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 #gem 'jquery-rails'
 gem 'jquery-rails'
+#Gem js functions and dynamic object association
+gem "cocoon"
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

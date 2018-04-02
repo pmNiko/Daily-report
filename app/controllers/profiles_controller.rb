@@ -3,11 +3,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1/edit
   def edit
     @profile = current_user.profile
-    if @profile.phones.empty?
-      @profile.phones << Phone.new(phone_type: 'Mobile', number: '11')
-      @profile.phones << Phone.new(phone_type: 'Mobile', number: '22')
-      @profile.phones << Phone.new(phone_type: 'Mobile', number: '33')
-    end
+    Phone.destroy_all
   end
 
   def update
