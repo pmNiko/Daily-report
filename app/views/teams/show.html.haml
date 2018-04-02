@@ -20,7 +20,11 @@
       = @team.first_responsible.email
     %td
       = @team.second_responsible.email
-
+  %tbody
+    - @team.claims.each do |claim|
+      %tr
+        %td= claim.ticket
+        %td= claim.client
 
   = link_to 'Edit', edit_team_path(@team)
   = link_to 'Back', teams_path

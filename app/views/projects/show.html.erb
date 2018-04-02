@@ -10,5 +10,17 @@
   <%= @project.description %>
 </p>
 
+<p>
+  <tbody>
+    <% @project.tasks.each do |task| %>
+      <tr>
+        <td><%= task.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
