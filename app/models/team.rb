@@ -1,8 +1,7 @@
 class Team < ApplicationRecord
-
-  has_and_belongs_to_many :claims
   has_and_belongs_to_many :users
-  accepts_nested_attributes_for :claims, :allow_destroy => true
+  has_and_belongs_to_many :claims, inverse_of: :teams
+  accepts_nested_attributes_for :claims, reject_if: :all_blank, allow_destroy: true
 
   #incluye este usuario en su coleccion de usuarios
   def responsibles

@@ -1,0 +1,17 @@
+<%
+ new_phone = Phone.new
+ fields = f.fields_for(:phones,
+  new_phone,
+  :child_index => "id_placeholder") do |fb|
+  render("phone_fields", :f => fb)
+ end
+ js = escape_javascript(fields)
+ fn = html_escape("addPhone($('#phones'), \"#{js}\")")
+      concat(raw("<a href=\"#\" class=\"btn btn-primary\" onclick=\"#{fn}\"><span class=\"glyphicon glyphicon-plus\"></span></a>"))
+%>
+
+
+<%= f.hidden_field :_destroy %>
+<a href="#" class="btn btn-warning" onclick="removePhone(this)">
+  <span class="glyphicon glyphicon-minus"></span>
+</a>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :projects
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :claims
   resources :teams
