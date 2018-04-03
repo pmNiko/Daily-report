@@ -17,24 +17,15 @@
     </div>
     <div class="panel-body">
       <div id="phones">
-        <%= f.fields_for :phones do | form_builder | %>
-          <%= render "phone_fields", :f => form_builder %>
+        <%= f.fields_for :phones do | phone | %>
+          <%= render "phone_fields", :f => phone %>
         <% end %>
       </div>
-      <%
-       new_phone = Phone.new
-       fields = f.fields_for(:phones,
-      	new_phone,
-      	:child_index => "id_placeholder") do |fb|
-        render("phone_fields", :f => fb)
-       end
-       js = escape_javascript(fields)
-       fn = html_escape("addPhone($('#phones'), \"#{js}\")")
-            concat(raw("<a href=\"#\" class=\"btn btn-primary\" onclick=\"#{fn}\"><span class=\"glyphicon glyphicon-plus\"></span></a>"))
-      %>
+        <%= link_to_add_association 'Add Phone', f, :phones %>
+      </div>
     </div>
   </div>
-  <p>
-    <%= f.submit 'Update', :class => 'btn btn-primary' %>
-  </p>
+  <button type="button" name="button" class= "btn btn-default" >
+    <%= f.submit %>
+  </button>
 <% end %>
