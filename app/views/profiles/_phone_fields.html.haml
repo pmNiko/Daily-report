@@ -1,0 +1,13 @@
+.form-inline
+  .form-group
+    = f.label :phone_type
+    = f.select(:phone_type,       |
+      ['Mobile', 'Work', 'Home'], |
+      {},                         |
+      {:class => 'form-control'}) |
+  .form-group
+    = f.label :number
+    = f.text_field :number, class: 'form-control'
+  %button_tag.btn-danger.btn-sm
+    = link_to_remove_association('', f,
+      { wrapper_class: 'form-inline', type: "button", class: "glyphicon glyphicon-trash"})

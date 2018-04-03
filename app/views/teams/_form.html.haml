@@ -1,6 +1,6 @@
 .row
 = simple_form_for @team do |f|
-  .panel.panel-default
+  .panel.panel-default#tbody
     .panel-heading
       %h3.panel-title.text-center Team
     .panel-body.text-center
@@ -18,12 +18,12 @@
         .form-group
           = f.input :truck, class: 'form-control currency'
   .panel.panel-default
-    .panel-heading
+    .panel-body.text-center
       %h3.panel-title.text-center Claims
-      #claims
-        = f.simple_fields_for :claims do |claim|
-          = render 'claim_fields', :f => claim
-        .links
-          = link_to_add_association 'add claim', f, :claims
-    %button{:name => "button", :type => "button"}
-      = f.submit
+      = f.simple_fields_for :claims do |claim|
+        = render 'claim_fields', :f => claim
+      %button_tag#but_tag_plus
+        = link_to_add_association button_tag('', type: "button", class: "glyphicon glyphicon-plus"), f, :claims
+
+  %button#butt{:name => "button", :type => "button"}
+    = f.submit

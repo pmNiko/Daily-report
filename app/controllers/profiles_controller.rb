@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/1/edit
   def edit
     @profile = current_user.profile
-    Phone.destroy_all
   end
 
   def update

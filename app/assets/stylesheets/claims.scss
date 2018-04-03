@@ -23,9 +23,53 @@
   color: none;
   font-weight: bold;
 }
-.button:hover {
-    background: #F5DEB3 !important;
+#but_tag_minus {
+  background: transparent url('button_right.png') no-repeat scroll top right;
+  text-decoration: none;
 }
+
+#but_tag_minus {
+  padding: 1px 1px 1px 1px !important;
+}
+button_tag.btn-danger.btn-sm {
+  padding: 2px 6px 2px 6px !important;
+}
+button.glyphicon.glyphicon-plus {
+  margin-top: 20px !important;
+}
+#but_tag_plus :hover{
+  background: #99ff33 !important;
+}
+
+#butt{
+    /* Sliding right image */
+    background: transparent url('button_right.png') no-repeat scroll top right;
+display: block;
+float: left;
+height: 32px; /* CHANGE THIS VALUE ACCORDING TO IMAGE HEIGHT */
+margin-right: 0px;
+padding-right: 0px; /* CHENGE THIS VALUE ACCORDING TO RIGHT IMAGE WIDTH */
+margin-top: 2px !important;
+/* FONT PROPERTIES */
+text-decoration: none;
+color: #000000;
+font-family: Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight:bold;
+}
+#butt {
+/* Background left image */
+background: transparent url('button_left.png') no-repeat;
+display: block;
+line-height: 22px; /* CHANGE THIS VALUE ACCORDING TO BUTTONG HEIGHT */
+padding: 2px 5px 3px 5px !important;
+border-radius: 10px;
+}
+#butt:hover {
+text-decoration:underline;
+
+}
+
 
 a:link{
   text-decoration:none;
