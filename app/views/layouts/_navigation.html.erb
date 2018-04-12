@@ -10,7 +10,7 @@
       </button>
       <% if user_signed_in? %>
         <%= link_to 'Claims', claims_path, class: 'navbar-brand' %>
-        <p class="navbar-text"> 
+        <p class="navbar-text">
           <% if current_user.profile.first_name.present? %>
             <%= current_user.profile.first_name %>
           <% else %>
