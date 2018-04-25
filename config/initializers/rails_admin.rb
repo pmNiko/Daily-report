@@ -2,11 +2,17 @@ RailsAdmin.config do |config|
 
   ### Popular gems integration
 
+  config.authorize_with do |controller|
+  unless current_user.has_role? :admin
+    redirect_to main_app.root_path
+  end
+end
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
+
 
   ## == Cancan ==
   # config.authorize_with :cancan
@@ -38,4 +44,5 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
 end

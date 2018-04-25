@@ -1,29 +1,35 @@
-.row
-= simple_form_for @team do |f|
-  .panel.panel-default#tbody
-    .panel-heading
-      %h3.panel-title.text-center Team
-    .panel-body.text-center
-      .form-inline
-        .form-group
-          = f.label :date
-          = f.date_field :date, :title => "date", :value => Date.today,
-          :placeholder => 'dd/mm/yyyy',
-          :class => "form-control-datepicker"
-        .form-group
-          = f.association :users, as: :select,
-                            value_method: :id, label_method: :email,
-                            multiple: true, input_html: { class: 'chosen-select',
-                            max_selected_options: 2}
-        .form-group
-          = f.input :truck, class: 'form-control currency'
-  .panel.panel-default
-    .panel-body.text-center
-      %h3.panel-title.text-center Claims
-      = f.simple_fields_for :claims do |claim|
-        = render 'claim_fields', :f => claim
-      %button_tag#but_tag_plus
-        = link_to_add_association button_tag('', type: "button", class: "glyphicon glyphicon-plus"), f, :claims
+#product-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        .row
+        = simple_form_for @team, remote: true do |f|
+          .panel.panel-default#tbody
+            .panel-heading
+              %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"} ×
+              %h3.panel-title.text-center= title
+            .panel-body.text-center
+              .form-inline
+                .form-group
+                  = f.label :date
+                  = f.date_field :date, :title => "date", :value => Date.today,
+                  :placeholder => 'dd/mm/yyyy',
+                  :class => "form-control-datepicker"
+                .form-group
+                  = f.association :users, as: :select,
+                                    value_method: :id, label_method: :email,
+                                    multiple: true, input_html: { class: 'chosen-select',
+                                    max_selected_options: 2}
+                .form-group
+                  = f.input :truck, class: 'form-control currency'
+          .panel.panel-default
+            .panel-body.text-center
+              %h3.panel-title.text-center Claims
+              = f.simple_fields_for :claims do |claim|
+                = render 'claim_fields', :f => claim
+              %button_tag#but_tag_plus
+                = link_to_add_association button_tag('', type: "button", class: "glyphicon glyphicon-plus"), f, :claims
 
-  %button#butt{:name => "button", :type => "button"}
-    = f.submit
+          .modal-footer
+            = f.submit class: "btn btn-primary btn-lg btn-block"
