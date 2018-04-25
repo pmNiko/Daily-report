@@ -3,11 +3,10 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   config.authorize_with do |controller|
-    unless current_user.has_role? :admin
-      redirect_to main_app.root_path
-    end
+  unless current_user.has_role? :admin
+    redirect_to main_app.root_path
   end
-
+end
   ## == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :user
