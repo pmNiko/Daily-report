@@ -8,17 +8,17 @@ default: &default
 development:
   <<: *default
   database: dreport_development
-  username: sifaho
-  password: 12345678
+  username: Niko
+  password: nikolas89
 
 test:
   <<: *default
   database: dreport_test
-  username: sifaho
-  password: 12345678
+  username: Niko
+  password: nikolas89
 
 production:
   <<: *default
   database: dreport_production
-  username: sifaho
+  username: Niko
   password: <%= ENV['DREPORT_DATABASE_PASSWORD'] %>

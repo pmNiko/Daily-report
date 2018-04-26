@@ -71,6 +71,3 @@ gem 'sinatra', '~> 1.0', require: nil
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 ruby "2.4.2"
 gem 'rails_admin', '~> 1.3'
-
-gem 'rolify', '~> 5.1'
-gem 'pundit', '~> 1.1.0'
