@@ -254,6 +254,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   devise
+  font-awesome-rails
   haml (>= 2.2.0)
   jbuilder (~> 2.5)
   jquery-rails

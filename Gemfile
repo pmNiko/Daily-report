@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem "cocoon"
+gem "font-awesome-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
