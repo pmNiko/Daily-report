@@ -10,13 +10,13 @@
       </button>
       <% if user_signed_in? %>
         <%= link_to 'Claims', claims_path, class: 'navbar-brand' %>
-        <p class="navbar-text">
+        <a href="#" class="navbar-brand">
           <% if current_user.profile.first_name.present? %>
             <%= current_user.profile.first_name %>
           <% else %>
             <%= current_user.email %>
           <% end %>
-        </p>
+        </a>
         <%= link_to 'Profile', edit_profile_path, class: 'navbar-brand'  %>
         <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete', class: 'navbar-brand'  %>
         <%= link_to 'New Team', new_team_path, class: 'navbar-brand' %>

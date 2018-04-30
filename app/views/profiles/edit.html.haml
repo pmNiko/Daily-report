@@ -20,6 +20,6 @@
             = f.fields_for :phones do | phone |
               = render "phone_fields", :f => phone
           %button_tag#but_tag_plus
-            = link_to_add_association button_tag('', type: "button", class: "glyphicon glyphicon-plus"), f, :phones
+            = link_to_add_association button_tag('', type: "button", class: "fas key"), f, :phones
       %button#butt{:name => "button", :type => "button"}
         = f.submit

@@ -24,3 +24,6 @@
 //= require_tree .
 //= require jquery.turbolinks
 //= require chosen-jquery
+
+$(document).on "turbolinks:load", ->
+  FontAwesome.dom.i2svg()
