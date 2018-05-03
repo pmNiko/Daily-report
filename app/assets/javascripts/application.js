@@ -19,11 +19,9 @@
 //= require bootstrap-sprockets
 //= require bootstrap.min
 //= require users
+//= require font_awesome
 //= require popper
 //= require bootstrap
 //= require_tree .
 //= require jquery.turbolinks
 //= require chosen-jquery
-
-$(document).on "turbolinks:load", ->
-  FontAwesome.dom.i2svg()
