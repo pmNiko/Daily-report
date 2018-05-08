@@ -13,9 +13,10 @@
  *= require chosen
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 
-modal-dialog {
+.modal-dialog {
     margin-top: 36px;
     margin-left: -200px;
 }

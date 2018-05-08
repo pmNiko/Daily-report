@@ -23,3 +23,12 @@
 //= require_tree .
 //= require jquery.turbolinks
 //= require chosen-jquery
+//=require moment
+//=require fullcalendar
+
+
+$(document).ready(function() {
+    $('#calendar').fullCalendar(
+      {events: '/events.json'}
+    );
+});
