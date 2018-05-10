@@ -10,18 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 //= require jquery3
-//= require jquery_ujs
-//= require turbolinks
-//= require moment
-//= require cocoon
-//= require bootstrap-sprockets
-//= require bootstrap.min
-//= require users
-//= require font_awesome
 //= require popper
-//= require bootstrap
+//= require rails-ujs
+//= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
-//= require jquery.turbolinks
-//= require chosen-jquery
