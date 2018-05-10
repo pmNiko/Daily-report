@@ -12,4 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require chosen
+ *= require font-awesome
  */
+
+ @import "font-awesome";
+
+.fontawesome-i2svg-pending body {
+ display: none;
+}
