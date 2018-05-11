@@ -10,12 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require chosen
- *= require_tree .
  *= require_self
+ *= require chosen
+ *= require font-awesome
+ *= require_tree .
  */
 
-modal-dialog {
-    margin-top: 36px;
-    margin-left: -200px;
+ @import "font-awesome";
+
+.fontawesome-i2svg-pending body {
+ display: none;
 }

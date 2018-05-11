@@ -11,15 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require moment
-//= require cocoon
-//= require bootstrap-sprockets
-//= require bootstrap.min
-//= require users
-//= require popper
-//= require bootstrap
-//= require_tree .
 //= require jquery.turbolinks
 //= require chosen-jquery
+//= require popper
+//= require rails-ujs
+//= require moment
+//= require cocoon
+//= require users
+//= require bootstrap-sprockets
+//= require turbolinks
+//= require_tree .
