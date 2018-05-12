@@ -5,18 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-#gem 'simple_form'
 gem 'simple_form'
 gem 'haml', '>= 2.2.0'
 gem 'jquery-turbolinks'
 gem 'chosen-rails'
 gem 'bootstrap', '~> 4.1.1'
 gem 'bootstrap-datepicker-rails'
-#gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
-#gem 'jquery-rails'
 gem 'jquery-rails'
-gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem "cocoon"
 gem 'font-awesome-sass', '~> 4.7.0'
@@ -74,3 +70,6 @@ gem 'rails_admin', '~> 1.3'
 
 gem 'rolify', '~> 5.1'
 gem 'pundit', '~> 1.1.0'
+
+gem 'fullcalendar.io-rails', '~> 3.9'
+gem 'momentjs-rails'

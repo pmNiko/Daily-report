@@ -86,6 +86,9 @@ GEM
       railties (>= 3.2, < 6.0)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    fullcalendar.io-rails (3.9.0)
+      jquery-rails (>= 3.1.0, < 5.0)
+      momentjs-rails (~> 2.15)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -260,12 +263,13 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   font-awesome-sass (~> 4.7.0)
+  fullcalendar.io-rails (~> 3.9)
   haml (>= 2.2.0)
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
   listen (>= 3.0.5, < 3.2)
-  momentjs-rails (~> 2.17, >= 2.17.1)
+  momentjs-rails
   pg (~> 0.18)
   popper_js (~> 1.11, >= 1.11.1)
   puma (~> 3.7)
