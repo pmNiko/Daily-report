@@ -36,9 +36,9 @@ $(function() {
       center: 'title',
       right: 'month,agendaWeek,agendaDay,listMonth'
     },
-    weekNumbers: true,
+    events: '/events.json',
     eventLimit: true, // allow "more" link when too many events
-    events: '/events.json'
+
   });
 
 });
