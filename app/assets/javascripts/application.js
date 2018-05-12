@@ -19,12 +19,10 @@
 //= require cocoon
 //= require users
 //= require bootstrap-sprockets
+//= require fullcalendar
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
-//= require jquery.turbolinks
-//= require chosen-jquery
-//=require moment
-//=require fullcalendar
 
 
 $(function() {
