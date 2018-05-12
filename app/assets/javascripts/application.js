@@ -13,18 +13,15 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require chosen-jquery
-//= require popper
 //= require rails-ujs
 //= require moment
 //= require cocoon
+//= require popper
+//= require fullcalendar
 //= require users
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
-//= require jquery.turbolinks
-//= require chosen-jquery
-//=require moment
-//=require fullcalendar
 
 
 $(function() {
@@ -38,7 +35,6 @@ $(function() {
     },
     events: '/events.json',
     eventLimit: true, // allow "more" link when too many events
-
   });
 
 });
