@@ -13,8 +13,7 @@
         .form-group
           = f.association :users, as: :select,
                             value_method: :id, label_method: :email,
-                            multiple: true, input_html: { class: 'chosen-select',
-                            max_selected_options: 2}
+                            multiple: true, input_html: { class: 'chzn-select span7', style: 'width: 200px'}
         .form-group
           = f.input :truck, class: 'form-control currency'
   .panel.panel-default

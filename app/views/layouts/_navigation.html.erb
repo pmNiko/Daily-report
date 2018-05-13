@@ -27,7 +27,7 @@
           </a>
           <%= link_to 'Profile', edit_profile_path, :remote => true, class: 'navbar-brand' %>
           <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete', class: 'navbar-brand'  %>
-          <%= link_to 'New Team', new_team_path, class: 'navbar-brand' %>
+          <%= link_to 'New Team', new_team_path, :remote => true, class: 'navbar-brand' %>
           <%= link_to 'Teams', teams_path, class: 'navbar-brand' %>
           <%= link_to 'Calendar', events_path, class: 'navbar-brand' %>
         <% end %>
