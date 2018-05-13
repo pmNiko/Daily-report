@@ -15,8 +15,9 @@
  *= require font-awesome
  *= require_tree .
  */
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
 
- @import "font-awesome";
+ @import "bootstrap";
 
 .fontawesome-i2svg-pending body {
  display: none;
